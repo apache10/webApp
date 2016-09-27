@@ -13,7 +13,10 @@ APP = Flask(__name__)
 def index():
     """ Displays the index page accessible at '/'
     """
-    return flask.render_template('welcome_student.html')
+    return "You are not logged in <br><a href = '/login-student'></b>" + \
+      "click here to log in as student</b><br>" + \
+      "<a href = '/admin'></b>" + \
+      "click here to log in as Admin</b></a>"
 
 @APP.route('/admin')
 def index1 ():
