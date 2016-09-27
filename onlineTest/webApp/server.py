@@ -21,6 +21,12 @@ def index1 ():
     """
     return flask.render_template('login_page_admin.html')
 
+@APP.route('/login-student')
+def loginStudent():
+    """ Displays the index page accessible at '/'
+    """
+    return flask.render_template('index.html')
+
 
 
 
