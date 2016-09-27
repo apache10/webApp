@@ -1,24 +1,16 @@
 import flask
 from flask import Flask
 
-
 # Create the application.
 APP = Flask(__name__)
-
-
-
-
 
 @APP.route('/')
 def index():
     """ Displays the index page accessible at '/'
     """
-    return "You are not logged in <br><a href = '/login-student'></b>" + \
-      "click here to log in as student</b><br>" + \
-      "<a href = '/admin'></b>" + \
-      "click here to log in as Admin</b></a>"
+    return flask.render_template('welcome.html')
 
-@APP.route('/admin')
+@APP.route('/login-admin')
 def index1 ():
     """ Displays the index page accessible at '/'
     """
