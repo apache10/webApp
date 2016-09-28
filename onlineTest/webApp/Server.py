@@ -1,5 +1,5 @@
 import flask
-from flask import Flask
+from flask import Flask, request, render_template
 
 # Create the application.
 APP = Flask(__name__)
@@ -13,16 +13,20 @@ def welcome ():
 @APP.route('/login-admin')
 def loginAdmin ():
  
-    return flask.render_template('login_page_admin.html')
+    return render_template('login_page_admin.html')
 
 @APP.route('/login-student')
 def loginStudent():
 
-    return flask.render_template('login_page_student.html')
+    return render_template('login_page_student.html')
     
 @APP.route('/dashboard-admin')
 def adminDash():
-    return flask.render_template('dashboard_admin.html')
+    return render_template('dashboard_admin.html')
+
+@APP.route('/dashboard-student')
+def studentDash():
+    return render_template('dashboard_student.html')
 
 
 

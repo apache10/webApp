@@ -1,53 +1,55 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<title>WELCOME</title>
-<script language="javascript" type="text/javascript" src="dashboard_student-validation.js"></script>
-</head>
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>WELCOME STUDENT</title>
+    <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> 
+    <link rel="stylesheet" href="{{ url_for('static', filename='header/header.css') }}">
+    <script> 
+      $(function(){
+        $("#header").load("{{ url_for('static', filename='header/header.html') }}");
+      });
+    </script> 
+  </head>
 
 <body>
-<img src="C:\Users\RedME\Downloads\FELIGHT.JPG" height="200px" widhth="300px">
-
-  <form name="Take Test on subbmit" onSubmit="return formValidation();">
-<table align="center" bgcolor="seagreen">
-<h1 align="center">WELCOME</h1>
+	<div id="header"></div>
+  <form action="/" method="post">
+	<table>
+		<div class="form">
+			<h1 align="center">WELCOME <!-- <name> --> </h1>
   <p class="paragraph">
+		<div class="tab-content">
+			<tr>
+			<td>Name :</td>
+			<td><output type="text" name="user" size="79"/>STUDENT ONE<!-- <name> --> </td>
+			</tr>
+			<tr>
+			<td>Email :</td>
+			<td><output type="text" name="Email" size="79"/>STUDENT@PORTAL.COM<!-- <email> --> </td>
+			</tr>
+			<tr>
+			<td>Test :</td>
+			<td><input type="radio" name="test" value="Take Test">Take test<input type="radio" name="test" value="Previous Test">Previous Test</td>
+			</tr>
 
-<tr>
-<td>UserId</td>
-<td><input type="text" name="user" placeholder="user name" size="79"/></td>
-</tr>
-
-<td>&nbsp;</td>
-
-<tr>
-<td>Email</td>
-<td><input type="text" name="Email" placeholder="Email Address" size="79"/></td>
-</tr>
-
-<td>&nbsp;</td>
-
-
-<tr>
-<td>Test</td>
-<td><input type="radio" name="test" value="Take Test">Take Test<input type="radio" name="test" value="Previous Test"/>Previous Test</td>
-</tr>
-
-<td>&nbsp;</td>
-<tr>
-<td>Remarks</td>
-<td><input type="text" name="Remarks"size="79"/></td>
-</tr>
+			<td>&nbsp;</td>
+			<tr>
+			<td>Remarks :</td>
+			<td><output type="text" name="Remarks" size="79"/>THIS THE REMARK FOR STUDENT ONE WITH MAIL ID STUDENT@PORTAL.COM</td>
+			</tr>
+			
+			<td>&nbsp;</td>
+			<td align="center"><input type="submit" name="button" value="Submit"></td>
+			
 
 
-
-<tr>
-<td>&nbsp;</td>
-<td align="center"><input type="submit" name="button" value="Submit">&nbsp;<input type="button" value="logout"></td>
-</tr>
-
-
-
+		</div>
+	</p>
+		</div>
 
 </table>
 </form>
