@@ -1,9 +1,13 @@
 
  <!DOCTYPE html>
 <html >
-  <head>
+  <head><style>
+  	
+h1 {text-align:justify-all,text-center;}
+ul {text-align:justify-all,text-center;}
+</style>
     <meta charset="UTF-8">
-    <title>WELCOME ADMIN</title>
+    <title>WELCOME</title>
     <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
     
     <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}">
@@ -17,15 +21,18 @@
 
 
  <body class="sticky-header left-side-collapsed"  onload="initMap()">
+
     <section>
      
 		<div class="left-side sticky-left-side">
 
 			<div class="logo">
-				<h1><a href="dashboard_admin.html">WELCOME <span>Admin</span></a></h1>
+				<h1><a href="dashboard_student.html">WELCOME ADMIN <span></span></a></h1>
+
+				<img src="https://www.google.co.in/imgres?imgurl=https%3A%2F%2Fwww.felight.com%2Fwp-content%2Fuploads%2F2014%2F12%2FNew-logo-purple-24.png&imgrefurl=https%3A%2F%2Fwww.felight.com%2F&docid=eEOQZePhOLwyeM&tbnid=pgxN4p8o4MWVAM%3A&w=307&h=264&client=firefox-b-ab&bih=667&biw=1366&ved=0ahUKEwit2OizjrLPAhWIu48KHUwABnYQMwgdKAAwAA&iact=mrc&uact=8" alt="felight Test"style="width=304px;height:228px;">
 			</div>
 			<div class="logo-icon text-center">
-				<a href="dashboard_admin.html"><i class="lnr lnr-home"></i> </a>
+				<a href="dashboard_student.html"><i class="lnr lnr-home"></i> </a>
 			</div>
 
 			<div class="left-side-inner">
@@ -34,15 +41,16 @@
 						
 						<li class="menu-list">
 							<a href="#"><i class="lnr lnr-cog"></i>
-								<span>MANAGE TEST</span></a>
+
+
+								</a>
 								<ul class="sub-menu-list">
 									<li><a href="#">CREATE TEST</a> </li>
 									<li><a href="#">PREVIOUS TEST</a></li>
-									
+									<li><a href="#">STUDENTS PROFILE</a></li>
 								</ul>
 						</li>
 						
 						
    </section>
 </body>
-</html>
