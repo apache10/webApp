@@ -4,24 +4,28 @@
     <meta charset="UTF-8">
     <title>WELCOME TO FELIGHT</title>
     <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
-    
     <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}">
-
-    
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-
-       
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='header/header.css') }}">
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script> 
+      $(function(){
+        $("#header").load("{{ url_for('static', filename='header/header.html') }}");
+      });
+    </script>  
   </head>
+	<body>
+	<div id="header"></div>
+	<div class="form">
+	        <div id="LoginType">   
+	          <h1>Choose Your Account</h1>
+	   
+	          <a href = '/login-student'><button  class="button button-block"/>Login As Student</button></a>
+	          <br>
+	          <br>
+	          <a  href = '/login-admin'><button class="button button-block"/>Login As Admin</button> </a>
+	      </div>
+	  </div> 
 
-<body>
- <div class="form">
-  
-<h1 align="center">WELCOME TO FELIGHT ONLINE TEST</h1>
-  <p class="paragraph">
-
-  You are not logged in <br><a href = '/login-student'></b>click here to log in as student</b><br><a href = '/login-admin'></b>click here to log in as Admin</b></a>
-</p>
-</div>
-
-</body>
+	</body>
 </html>
