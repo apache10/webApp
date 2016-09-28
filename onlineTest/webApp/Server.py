@@ -5,22 +5,21 @@ from flask import Flask
 APP = Flask(__name__)
 
 @APP.route('/')
-def index():
+def welcome ():
     """ Displays the index page accessible at '/'
     """
     return flask.render_template('welcome.html')
 
 @APP.route('/login-admin')
-def index1 ():
-    """ Displays the index page accessible at '/'
-    """
+def loginAdmin ():
+ 
     return flask.render_template('login_page_admin.html')
 
 @APP.route('/login-student')
 def loginStudent():
-    """ Displays the index page accessible at '/'
-    """
-    return flask.render_template('index.html')
+
+    return flask.render_template('login_page_student.html')
+    
 @APP.route('/dashboard-admin')
 def adminDash():
     return flask.render_template('dashboard_admin.html')
