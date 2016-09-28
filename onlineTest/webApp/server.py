@@ -21,6 +21,9 @@ def loginStudent():
     """ Displays the index page accessible at '/'
     """
     return flask.render_template('index.html')
+@APP.route('/dashboard-admin')
+def adminDash():
+    return flask.render_template('dashboard_admin.html')
 
 
 
