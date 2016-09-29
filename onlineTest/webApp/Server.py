@@ -40,9 +40,6 @@ def checkRegister(fname,lname,email,password):
 	else:
 		return False
 
-
-
-
 @APP.route('/registred',methods = ['POST', 'GET'])
 def registred():
 	if request.method == 'POST':
