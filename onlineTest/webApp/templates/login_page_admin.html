@@ -22,29 +22,29 @@
       <div>
         <div id="login">   
           <h1>WELCOME ADMIN!</h1>
-          <form action="/" method="post">
+          <form action="http://localhost:5000/dashboard-admin" method="POST" >
             <div class="field-wrap">
               <label>
-                First Name<span class="req">*</span>
+                Name<span class="req">*</span>
               </label>
-              <input type="text" required autocomplete="off" />
+              <input type="text" name= "name" required autocomplete="off" />
             </div>
           <div class="field-wrap">
             <label>
               Email Address<span class="req">*</span>
             </label>
-            <input type="email"required autocomplete="off"/>
+            <input type="email" name="email" required />
           </div>         
           <div class="field-wrap">
             <label>
               Password<span class="req">*</span>
             </label>
-            <input type="password"required autocomplete="off"/>
+            <input type="password" name="password" required autocomplete="off"/>
           </div>
           <button type="submit" class="button button-block"/>Manage System</button>  
           </form>
         </div>
-        
+
       </div><!-- tab-content -->
   </div> <!-- /form --> 
   </body>

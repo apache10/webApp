@@ -19,24 +19,26 @@
 
  <body>
 
-
-     	<div id="header"></div>
+ 
 		<div class="left-side sticky-left-side">
 
 			<div class="form">
 				<h1><a href="#">WELCOME ADMIN <span></span></a></h1>	
 			</div>
 	<form action="/" method="post">
+	 <div id="content">
+                Hello <strong>{{name}}</strong> ({{email}})!
+            </div>
 	 <p class="paragraph">
 		<div class="tab-content">
 		<table>
 			<tr>
-			<td>Name :</td>
-			<td><output type="text" name="user" placeholder="user name" size="79"/>ADMIN ONE<!-- <name> --> </td>
+			<td>Name :{{name}}</td>
+			
 			</tr>
 			<tr>
 			<td>Email :</td>
-			<td><output type="text" name="Email" placeholder="Email Address" size="79"/>ADMIN@PORTAL.COM</td>
+			<td><output type="text" name="Email" placeholder="Email Address" size="79"/>{{email}}</td>
 			</tr>
 			
 			</table>
@@ -53,5 +55,6 @@
 			</li>
 						
 		</table>
-	</form>				
+	</form>			
+		
 </body>
