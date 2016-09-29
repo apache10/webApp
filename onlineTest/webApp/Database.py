@@ -16,20 +16,20 @@ cursor.execute(sql)
 
 cursor.execute("DROP TABLE IF EXISTS ADMIN")
 
-sql1 = """CREATE TABLE ADMIN (
+sql = """CREATE TABLE ADMIN (
          FIRST_NAME  CHAR(20) NOT NULL,
          EMAIL CHAR(20) NOT NULL,  
          PASSWORD CHAR(20)NOT NULL)"""
 
-cursor.execute(sql1)
+cursor.execute(sql)
 
 cursor.execute("DROP TABLE IF EXISTS MARKS")
 
-sql2 = """CREATE TABLE MARKS (
+sql = """CREATE TABLE MARKS (
          FIRST_NAME  CHAR(20) NOT NULL,
          EMAIL CHAR(20) NOT NULL, 
          SCORE CHAR(20)NOT NULL,
          PRIMARY KEY(EMAIL))"""
 
-cursor.execute(sql2)
+cursor.execute(sql)
 db.close()

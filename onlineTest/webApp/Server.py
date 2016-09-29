@@ -27,9 +27,9 @@ def loginStudent():
 
 def checkRegister(fname,lname,email,password):
 	count=False
-	sqlI = """INSERT INTO STUDENT(FIRST_NAME,LAST_NAME, EMAIL, PASSWORD)VALUES ('A', 'B', 'c', 'd')"""
+	sql= "INSERT INTO STUDENT(FIRST_NAME,LAST_NAME, EMAIL, PASSWORD) VALUES ('%s', '%s', '%s', '%s')" 	%(fname,lname,email,password)
 	try:
-		cursor.execute(sqlI)
+		cursor.execute(sql)
 		db.commit()
 		count=True
 	except:
@@ -51,9 +51,28 @@ def registred():
 			return '<html><body><h1>"Registeration successful!"</h1></body></html>'
 		else:
 			return '<html><body><h1>"Something went Wrong!"</h1></body></html>'
-	else:
-			return '<html><body><h1>"Something went Wrong!"</h1></body></html>'
+    
+@APP.route('/dashboard-admin',methods = ['POST', 'GET'])
+def adminDash():
+	if request.method == 'POST':
+		name=request.form['name']
+		email=request.form['email']
+		password=request.form['password']
+		if(checkAdmin(name,email,password)):
+			return render_template('dashboard_admin.html', name=name, email=email)
+		else:
+			return render_template('login_page_admin.html')
 
+
+@APP.route('/dashboard-student',methods = ['POST', 'GET'])
+def studentDash():
+	if request.method == 'POST':
+		email=request.form['emailS']
+		password=request.form['passwordS']
+		if(checkStudent(email,password)):
+			return render_template('dashboard_student.html')
+		else:
+			return render_template('login_page_student.html')
 
 
 def checkAdmin(name,email,password):
@@ -72,24 +91,12 @@ def checkAdmin(name,email,password):
 	else:
 		return False
 
-    
-@APP.route('/dashboard-admin',methods = ['POST', 'GET'])
-def adminDash():
-	if request.method == 'POST':
-		name=request.form['name']
-		email=request.form['email']
-		password=request.form['password']
-		if(checkAdmin(name,email,password)):
-			return render_template('dashboard_admin.html', name=name, email=email)
-		else:
-			return render_template('login_page_admin.html')
-
 
 
 def checkStudent(email,password):
-	sql1 = "SELECT * FROM STUDENT WHERE EMAIL = '%s'" % (email)
+	sql = "SELECT * FROM STUDENT WHERE EMAIL = '%s'" % (email)
 	try:
-		cursor.execute(sql1)
+		cursor.execute(sql)
 		results = cursor.fetchall()
 		for row in results:
 			fname= row[0]
@@ -104,16 +111,6 @@ def checkStudent(email,password):
 		return True
 	else:
 		return False
-
-@APP.route('/dashboard-student',methods = ['POST', 'GET'])
-def studentDash():
-	if request.method == 'POST':
-		email=request.form['emailS']
-		password=request.form['passwordS']
-		if(checkStudent(email,password)):
-			return render_template('dashboard_student.html')
-		else:
-			return render_template('login_page_student.html')
 
 
 
