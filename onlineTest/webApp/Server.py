@@ -25,6 +25,39 @@ def loginAdmin ():
 def loginStudent():
     return render_template('login_page_student.html')
 
+def checkRegister(fname,lname,email,password):
+	count=False
+	sqlI = """INSERT INTO STUDENT(FIRST_NAME,LAST_NAME, EMAIL, PASSWORD)VALUES ('A', 'B', 'c', 'd')"""
+	try:
+		cursor.execute(sqlI)
+		db.commit()
+		count=True
+	except:
+		db.rollback()
+
+	if(count):
+		return True
+	else:
+		return False
+
+
+
+
+@APP.route('/registred',methods = ['POST', 'GET'])
+def registred():
+	if request.method == 'POST':
+		fname=request.form['name']
+		lname=request.form['last']
+		email=request.form['email']
+		password=request.form['password']
+		if(checkRegister(fname,lname,email,password)):
+			return '<html><body><h1>"Registeration successful!"</h1></body></html>'
+		else:
+			return '<html><body><h1>"Something went Wrong!"</h1></body></html>'
+	else:
+			return '<html><body><h1>"Something went Wrong!"</h1></body></html>'
+
+
 
 def checkAdmin(name,email,password):
 	sql = "SELECT * FROM ADMIN WHERE EMAIL = '%s'" % (email)
