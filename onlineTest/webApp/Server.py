@@ -57,10 +57,9 @@ def adminDash():
 
 
 def checkStudent(email,password):
-	print email
 	sql1 = "SELECT * FROM STUDENT WHERE EMAIL = '%s'" % (email)
 	try:
-		cursor.execute(sq1l)
+		cursor.execute(sql1)
 		results = cursor.fetchall()
 		for row in results:
 			fname= row[0]
@@ -71,7 +70,7 @@ def checkStudent(email,password):
 		print dpassword
 	except:
 		print "Error: unable to fecth data"
-	if( False):
+	if(password==dpassword):
 		return True
 	else:
 		return False
