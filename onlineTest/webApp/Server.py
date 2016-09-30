@@ -35,9 +35,9 @@ def registred():
 		email=request.form['email']
 		password=request.form['password']
 		if(checkRegister(fname,lname,email,password)):
-			return '<html><body><h1>"Registeration successful!"</h1></body></html>'
+			return render_template('registered.html')
 		else:
-			return '<html><body><h1>"Something went Wrong!"</h1></body></html>'
+			return render_template('unsucessful.html')
 
 @APP.route('/upload-Question',methods =['POST', 'GET'])
 def uploadQuestion():
