@@ -25,20 +25,7 @@ def loginAdmin ():
 def loginStudent():
     return render_template('login_page_student.html')
 
-def checkRegister(fname,lname,email,password):
-	count=False
-	sql= "INSERT INTO STUDENT(FIRST_NAME,LAST_NAME, EMAIL, PASSWORD) VALUES ('%s', '%s', '%s', '%s')" 	%(fname,lname,email,password)
-	try:
-		cursor.execute(sql)
-		db.commit()
-		count=True
-	except:
-		db.rollback()
 
-	if(count):
-		return True
-	else:
-		return False
 
 @APP.route('/registred',methods = ['POST', 'GET'])
 def registred():
@@ -51,6 +38,21 @@ def registred():
 			return '<html><body><h1>"Registeration successful!"</h1></body></html>'
 		else:
 			return '<html><body><h1>"Something went Wrong!"</h1></body></html>'
+
+@APP.route('/upload-Question',methods =['POST', 'GET'])
+def uploadQuestion():
+	if request.method == 'POST':
+		testCode=request.form['testCode']
+		question=request.form['question']
+		optionA=request.form['optionA']
+		optionB=request.form['optionB']
+		optionC=request.form['optionC']
+		optionD=request.form['optionD']
+		answer=request.form['answer']
+		if(checkUpload(testCode,question,optionA,optionB,optionC,optionD,answer)):
+			return render_template('dashboard_admin.html')
+		else:
+			return render_template('dashboard_admin.html')
     
 @APP.route('/dashboard-admin',methods = ['POST', 'GET'])
 def adminDash():
@@ -70,9 +72,26 @@ def studentDash():
 		email=request.form['emailS']
 		password=request.form['passwordS']
 		if(checkStudent(email,password)):
-			return render_template('dashboard_student.html')
+			return render_template('dashboard_student.html',email=email)
 		else:
 			return render_template('login_page_student.html')
+
+
+
+def checkUpload(testCode,question,optionA,optionB,optionC,optionD,answer):
+	check=False
+	sql= "INSERT INTO TEST(TEST_CODE, QUESTION, OPTION_A, OPTION_B, OPTION_C, OPTION_D, ANSWER) VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s')" %(testCode,question,optionA,optionB,optionC,optionD,answer)
+	try:
+		cursor.execute(sql)
+		db.commit()
+		check=True
+	except:
+		db.rollback()
+
+	if(check):
+		return True
+	else:
+		return False
 
 
 def checkAdmin(name,email,password):
@@ -103,8 +122,6 @@ def checkStudent(email,password):
 			lname = row[1]
 			demail = row[2]
 			dpassword = row[3]
-		print demail
-		print dpassword
 	except:
 		print "Error: unable to fecth data"
 	if(password==dpassword):
@@ -113,6 +130,20 @@ def checkStudent(email,password):
 		return False
 
 
+def checkRegister(fname,lname,email,password):
+	count=False
+	sql= "INSERT INTO STUDENT(FIRST_NAME,LAST_NAME, EMAIL, PASSWORD) VALUES ('%s', '%s', '%s', '%s')" 	%(fname,lname,email,password)
+	try:
+		cursor.execute(sql)
+		db.commit()
+		count=True
+	except:
+		db.rollback()
+
+	if(count):
+		return True
+	else:
+		return False
 
 
 if __name__ == '__main__':

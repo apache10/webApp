@@ -12,49 +12,97 @@
       $(function(){
         $("#header").load("{{ url_for('static', filename='header/header.html') }}");
       });
-    </script> 
+    </script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='sidebar/sidebar.css') }}">
+    <script> 
+      $(function(){
+        $("#sidebar").load("{{ url_for('static', filename='sidebar/sidebar.html') }}");
+      });
+    </script>  
   </head>
 
 
 
  <body>
-
- 
+ 	<div id="header"></div>
+ 	<div>
+	 	<div id="sidebar"></div>
 		<div class="left-side sticky-left-side">
-
 			<div class="form">
 				<h1><a href="#">WELCOME ADMIN <span></span></a></h1>	
 			</div>
-	<form action="/" method="post">
-	 <div id="content">
-                Hello <strong>{{name}}</strong> ({{email}})!
-            </div>
-	 <p class="paragraph">
-		<div class="tab-content">
-		<table>
-			<tr>
-			<td>Name :{{name}}</td>
-			
-			</tr>
-			<tr>
-			<td>Email :</td>
-			<td><output type="text" name="Email" placeholder="Email Address" size="79"/>{{email}}</td>
-			</tr>
-			
-			</table>
-
+			<form action="/" method="post">
+		 		<div id="content">
+	                Hello <strong>{{name}}</strong> ({{email}})!
+	            </div>
+			 	<p class="paragraph">
+					<div class="tab-content">
+						<table>
+							<tr>
+								<td>Name :{{name}}</td>
+							</tr>
+							<tr>
+								<td>Email :</td>
+								<td><input type="text" name="Email" placeholder="Email Address" size="79"/>{{email}}</td>
+							</tr>
+						</table>
+					</div>
+				</p>
+				<table >
+					<li class="menu-list">
+						<ul class="sub-menu-list">
+							<li><a href="#">CREATE TEST</a> </li>
+							<li><a href="#">PREVIOUS TEST</a></li>
+							<li><a href="#">STUDENTS PROFILE</a></li>
+						</ul>
+					</li>			
+				</table>
+			</form>	
+			<form action="http://localhost:5000/upload-Question" method="POST" >
+	            <div class="field-wrap">
+	              <label>
+	                Test Code<span class="req">*</span>
+	              </label>
+	              <input type="text" name= "testCode" required />
+	            </div>
+	            <div class="field-wrap">
+	              <label>
+	                Question<span class="req">*</span>
+	              </label>
+	              <input type="text" name= "question" required autocomplete="off"/>
+	            </div>
+	            <div class="field-wrap">
+	              <label>
+	                Option A<span class="req">*</span>
+	              </label>
+	              <input type="text" name= "optionA" required autocomplete="off"/>
+	            </div>
+	            <div class="field-wrap">
+	              <label>
+	                Option B<span class="req">*</span>
+	              </label>
+	              <input type="text" name= "optionB" required autocomplete="off"/>
+	            </div>
+	        	<div class="field-wrap">
+	            	<label>
+	            	Option C<span class="req">*</span>
+	            	</label>
+	            	<input type="text" name="optionC" required autocomplete="off" />
+	        	</div>         
+	        	<div class="field-wrap">
+	            	<label>
+	            	Option D<span class="req">*</span>
+	            	</label>
+	            	<input type="text" name="optionD" required autocomplete="off"/>
+	        	</div>
+	        	<div class="field-wrap">
+	            	<label>
+	            	ANSWER<span class="req">*</span>
+	            	</label>
+	            	<input type="text" name="answer" required autocomplete="off"/>
+	        	</div>
+        		<button type="submit" class="button button-block"/>SUBMIT</button>  
+        	</form>		
 		</div>
-	</p>
-		<table >
-			<li class="menu-list">
-					<ul class="sub-menu-list">
-						<li><a href="#">CREATE TEST</a> </li>
-						<li><a href="#">PREVIOUS TEST</a></li>
-						<li><a href="#">STUDENTS PROFILE</a></li>
-					</ul>
-			</li>
-						
-		</table>
-	</form>			
-		
+	</div>
 </body>
