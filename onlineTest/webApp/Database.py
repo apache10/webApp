@@ -38,13 +38,13 @@ cursor.execute(sql)
 cursor.execute("DROP TABLE IF EXISTS TEST")
 
 sql = """CREATE TABLE TEST (
-         TEST_CODE TEXT NOT NULL,
+         TEST_CODE CHAR(10) NOT NULL,
          QUESTION  CHAR(100) NOT NULL,
-         OPTION_A TEXT NOT NULL, 
-         OPTION_B TEXT NOT NULL,
-         OPTION_C TEXT NOT NULL,
-         OPTION_D TEXT NOT NULL,
-         ANSWER TEXT NOT NULL,
+         OPTION_A CHAR(20) NOT NULL, 
+         OPTION_B CHAR(20) NOT NULL,
+         OPTION_C CHAR(20) NOT NULL,
+         OPTION_D CHAR(20) NOT NULL,
+         ANSWER CHAR(20) NOT NULL,
          PRIMARY KEY(QUESTION))"""
 
 cursor.execute(sql)
